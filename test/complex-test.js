@@ -1,6 +1,6 @@
 const {strictEqual, deepStrictEqual} = require("assert");
 const {describe, it} = require("node:test");
-const {add, complex} = require("../src/complex.js");
+const {add, complex, multiply} = require("../src/complex.js");
 
 describe("complex number", function() {
   const firstNumber = complex(1, 2);
@@ -21,6 +21,12 @@ describe("complex number", function() {
   describe("addition", function() {
     it("should give additon", function() {
       deepStrictEqual(add(firstNumber, secondNumber), [3, 5]);
+    })
+  })
+
+  describe("multiplication", function() {
+    it("should give multiplication", function() {
+      deepStrictEqual(multiply(firstNumber, secondNumber), [-4, 7]);
     })
   })
 })
