@@ -30,6 +30,20 @@ const multiply = function(firstNumber, secondNumber) {
   return [a1 * a2 - b1 * b2, a1 * b2 + a2 * b1];
 }
 
+const display = function(real, imaginary) {
+  if(real === 0) {
+    return `${imaginary}i`;
+  }
+  
+  let sign = "+";
+  if(imaginary < 0) {
+    sign = "-";
+    imaginary = 0 - imaginary;
+  }
+  return `${real} ${sign} ${imaginary}i`;
+}
+
 exports.add = add;
 exports.complex = complex;
 exports.multiply = multiply;
+exports.display = display;
