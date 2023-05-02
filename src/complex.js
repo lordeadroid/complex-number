@@ -1,8 +1,5 @@
-const complex = function(a, b) {
-  const complexNumber = {
-    real: a,
-    imaginary: b
-  };
+const complex = function(real, imaginary) {
+  const complexNumber = {real, imaginary};
 
   const realPart = function() {
     return complexNumber.real;
@@ -15,7 +12,14 @@ const complex = function(a, b) {
   return {realPart, imaginaryPart};
 }
 
-const {realPart, imaginaryPart} = complex(2, 3);
+const add = function(firstNumber, secondNumber) {
+  const a1 = firstNumber.realPart();
+  const b1 = firstNumber.imaginaryPart();
+  const a2 = secondNumber.realPart();
+  const b2 = secondNumber.imaginaryPart();
 
-exports.realPart = realPart;
-exports.imaginaryPart = imaginaryPart;
+  return [a1 + a2, b1 + b2];
+}
+
+exports.add = add;
+exports.complex = complex;
