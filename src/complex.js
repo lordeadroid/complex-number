@@ -1,12 +1,10 @@
-const complex = function(real, imaginary) {
-  const complexNumber = {real, imaginary};
-
+const complexNumber = function(real, imaginary) {
   const realPart = function() {
-    return complexNumber.real;
+    return real;
   }
 
   const imaginaryPart = function() {
-    return complexNumber.imaginary;
+    return imaginary;
   }
 
   return {realPart, imaginaryPart};
@@ -43,6 +41,6 @@ const display = function(real, imaginary) {
 }
 
 exports.add = add;
-exports.complex = complex;
+exports.complexNumber = complexNumber;
 exports.multiply = multiply;
 exports.display = display;
