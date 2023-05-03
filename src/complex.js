@@ -21,7 +21,21 @@ const complexNumber = function(real, imaginary) {
     return complexNumber(realPart, imaginaryPart);
   }
 
-  return {realPart, imaginaryPart, add, multiply};
+  const format = function() {
+    if(imaginary === 0) {
+      return `${real}`;
+    }
+
+    if(real === 0) {
+      return `${imaginary}i`;
+    }
+    
+    const sign = imaginary > 0 ? "+" : "-";
+
+    return `${real} ${sign} ${Math.abs(imaginary)}i`;
+  }
+
+  return {realPart, imaginaryPart, add, multiply, format};
 }
 
 exports.complexNumber = complexNumber;
