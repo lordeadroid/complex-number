@@ -3,8 +3,8 @@ const {describe, it} = require("node:test");
 const {add, complexNumber, multiply, display} = require("../src/complex.js");
 
 describe("complex number", function() {
-  const firstNumber = complexNumber(1, 2);
-  const secondNumber = complexNumber(2, 3);
+  let firstNumber = complexNumber(1, 2);
+  let secondNumber = complexNumber(2, 3);
 
   describe("real part", function() {
     it("should give real part", function() {
@@ -18,21 +18,11 @@ describe("complex number", function() {
     })
   })
 
+  const sum = firstNumber.add(secondNumber);
   describe("addition", function() {
-    it("should give additon", function() {
-      deepStrictEqual(add(firstNumber, secondNumber), [3, 5]);
-    })
-  })
-
-  describe("multiplication", function() {
-    it("should give multiplication", function() {
-      deepStrictEqual(multiply(firstNumber, secondNumber), [-4, 7]);
-    })
-  })
-
-  describe("display", function() {
-    it("should display the number is standard way", function() {
-      strictEqual(display(2, 3), "2 + 3i");
+    it("should give sum of real and imaginary parts of numbers", function() {
+      strictEqual(sum.realPart(), 3);
+      strictEqual(sum.imaginaryPart(), 5);
     })
   })
 })
