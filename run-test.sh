@@ -1,1 +1,1 @@
-node --test
+node --watch --test test
