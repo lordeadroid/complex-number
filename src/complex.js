@@ -38,9 +38,8 @@ const display = function(real, imaginary) {
   let sign = "+";
   if(imaginary < 0) {
     sign = "-";
-    imaginary = 0 - imaginary;
   }
-  return `${real} ${sign} ${imaginary}i`;
+  return `${real} ${sign} ${Math.abs(imaginary)}i`;
 }
 
 exports.add = add;
