@@ -39,6 +39,6 @@ describe("multiplication", function() {
 describe("display", function() {
   const number = complexNumber(1, 2);
   it("should display complex number in the standard form", function() {
-    strictEqual(number.format(), "1 + 2i");
+    strictEqual(number.format(), "1+2i");
   })
 })
