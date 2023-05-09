@@ -34,7 +34,6 @@ class Complex {
     const isRealEqual = this.#real.isEqual(other.#real);
     const isImaginaryEqual = this.#imaginary.isEqual(other.#imaginary);
 
-    console.log(isRealEqual, isImaginaryEqual);
     return isRealEqual && isImaginaryEqual;
   }
 
