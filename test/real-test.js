@@ -35,8 +35,11 @@ describe("Real Number", function() {
   })
 
   it("should equate two numbers", function () {
-    const actual = new Real(1);
-    const expected = new Real(1);
+    const number = new Real(2);
+    const other = new Real(2);
+
+    const actual = number.isEqual(other);
+    const expected = true;
     deepStrictEqual(actual, expected);
   })
 })

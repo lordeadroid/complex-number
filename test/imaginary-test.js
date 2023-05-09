@@ -24,4 +24,14 @@ describe("Imaginary", function () {
 
     deepStrictEqual(actual, expected);
   })
+
+  it("should equate two imaginary numbers", function () {
+    const number = new Imaginary(new Real(1));
+    const other = new Imaginary(new Real(1));
+
+    const actual = number.isEqual(other);
+    const expected = true;
+
+    deepStrictEqual(actual, expected);
+  })
 });

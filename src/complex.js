@@ -20,6 +20,16 @@ class Complex {
     return new Complex(realNumber, imaginaryNumber);
   }
 
+  multiply(other) {
+    const real = this.#real.multiply(other.#real) + this.#imaginary.multiplyImaginary(other.#imaginary);
+    const imaginary = this.#imaginary(other.#real) + other.#real(other.#imaginary);
+
+    const realNumber = new Real(real);
+    const imaginaryNumber = new Imaginary(imaginary);
+
+    return new Complex(realNumber, imaginaryNumber);
+  }
+
   toString() {
     return this.real.toString() + " + " + this.imaginary.toString();
   }

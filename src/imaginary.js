@@ -22,6 +22,10 @@ class Imaginary {
     return new Real(number * -1);
   }
 
+  isEqual(otherNumber) {
+    return this.#imaginary.isEqual(otherNumber.#imaginary);
+  }
+
   toString() {
     return `${this.#imaginary}i`;
   }
