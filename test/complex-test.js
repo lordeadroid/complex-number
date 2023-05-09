@@ -1,44 +1,42 @@
 const {strictEqual, deepStrictEqual} = require("assert");
 const {describe, it} = require("node:test");
-const {complexNumber} = require("../src/complex.js");
+
+const {Complex} = require("../src/complex.js");
 
 describe("real part", function() {
-  const number = complexNumber(1, 2);
   it("should give real part", function() {
-    strictEqual(number.realPart(), 1);
+    const number = new Complex(1, 2);
+    const actual = number.getReal();
+    const expected = 1;
+    strictEqual(actual, expected);
   })
 })
 
 describe("imaginary part", function() {
-  const number = complexNumber(2, 4);
   it("should give imaginary part", function() {
-    strictEqual(number.imaginaryPart(), 4);
+    const number = new Complex(2, 4);
+    const actual = number.getImaginary();
+    const expected = 4;
+    strictEqual(actual, expected);
   })
 })
 
 describe("addition", function() {
-  const firstNumber = complexNumber(1, -1);
-  const secondNumber = complexNumber(2, 3);
-  const sum = firstNumber.add(secondNumber);
   it("should give sum of real and imaginary parts of numbers", function() {
-    strictEqual(sum.realPart(), 3);
-    strictEqual(sum.imaginaryPart(), 2);
+    const firstNumber = new Complex(1, 1);
+    const secondNumber = new Complex(2, 3);
+    const actual = firstNumber.add(secondNumber);
+    const expected = new Complex(3, 4);
+    deepStrictEqual(actual, expected);
   })
 })
 
 describe("multiplication", function() {
-  const firstNumber = complexNumber(4, 2);
-  const secondNumber = complexNumber(2, -3);
-  const product = firstNumber.multiply(secondNumber);
   it("should give product of real and imaginary parts of numbers", function() {
-    strictEqual(product.realPart(), 14);
-    strictEqual(product.imaginaryPart(), -8); 
-  })
-})
-
-describe("display", function() {
-  const number = complexNumber(1, 2);
-  it("should display complex number in the standard form", function() {
-    strictEqual(number.format(), "1+2i");
+    const firstNumber = new Complex(4, 2);
+    const secondNumber = new Complex(2, 3);
+    const actual = firstNumber.multiply(secondNumber);
+    const expected = new Complex(2, 16);
+    deepStrictEqual(actual, expected);
   })
 })
