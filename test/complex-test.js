@@ -38,7 +38,7 @@ describe("Complex Number", function () {
     const expected = new Complex(r, i);
 
     deepStrictEqual(actual, expected);
-  })
+  });
 
   it("should tell if an complex number is equal to other", function () {
     const r1 = new Real(1);
@@ -53,5 +53,5 @@ describe("Complex Number", function () {
     const expected = false;
 
     deepStrictEqual(actual, expected);
-  }
-})
+  });
+});

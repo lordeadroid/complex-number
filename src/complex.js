@@ -30,6 +30,14 @@ class Complex {
     return new Complex(realNumber, imaginaryNumber);
   }
 
+  isEqual(other) {
+    const isRealEqual = this.#real.isEqual(other.#real);
+    const isImaginaryEqual = this.#imaginary.isEqual(other.#imaginary);
+
+    console.log(isRealEqual, isImaginaryEqual);
+    return isRealEqual && isImaginaryEqual;
+  }
+
   toString() {
     return this.real.toString() + " + " + this.imaginary.toString();
   }
