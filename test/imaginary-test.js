@@ -1,37 +1,90 @@
 const { describe, it } = require("node:test");
-const { deepStrictEqual } = require("assert");
+const { strictEqual } = require("assert");
 
 const { Real } = require("../src/real");
 const { Imaginary } = require("../src/imaginary.js");
 
 describe("Imaginary", function () {
-  it("should add two imaginary numbers", function () {
-    const number = new Imaginary(new Real(2));
-    const other = new Imaginary(new Real(3));
+  describe("isEqual:", function () {
+    it("should be equals when same number is given", function () {
+      const firstNumber = new Imaginary(new Real(1));
+      const secondNumber = new Imaginary(new Real(1));
 
-    const actual = number.add(other);
-    const expected = new Imaginary(new Real(5));
+      const actual = firstNumber.isEqual(secondNumber);
+      const expected = true;
 
-    deepStrictEqual(actual, expected);
+      strictEqual(actual, expected);
+    })
+
+    it("should be not equal for different values", function () {
+      const firstNumber = new Imaginary(new Real(0));
+      const secondNumber = new Imaginary(new Real(3));
+
+      const actual = firstNumber.isEqual(secondNumber);
+      const expected = false;
+
+      strictEqual(actual, expected);
+    });
   });
 
-  it("should return an product of real and imaginary", function () {
-    const r = new Real(3);
-    const i = new Imaginary(new Real(2));
+  describe("add:", function () {
+    it("should give the sum of two numbers", function () {
+      const firstNumber = new Imaginary(new Real(1));
+      const secondNumber = new Imaginary(new Real(1));
+      const sum = firstNumber.add(secondNumber);
 
-    const actual = i.multiply(r);
-    const expected = new Imaginary(6);
+      const actual = sum.isEqual(new Imaginary(new Real(2)));
+      const expected = true;
 
-    deepStrictEqual(actual, expected);
-  })
+      strictEqual(actual, expected);
+    });
 
-  it("should equate two imaginary numbers", function () {
-    const number = new Imaginary(new Real(1));
-    const other = new Imaginary(new Real(1));
+    it("should give the sum of a positive and a negative number", function () {
+      const firstNumber = new Imaginary(new Real(5));
+      const secondNumber = new Imaginary(new Real(-2));
+      const sum = firstNumber.add(secondNumber);
 
-    const actual = number.isEqual(other);
-    const expected = true;
+      const actual = sum.isEqual(new Imaginary(new Real(3)));
+      const expected = true;
 
-    deepStrictEqual(actual, expected);
-  })
+      strictEqual(actual, expected);
+    });
+  });
+
+  describe("multiply:", function () {
+    it("should give product of two real with imaginary number", function () {
+      const realNumber = new Real(2);
+      const imaginaryNumber = new Imaginary(new Real(7));
+      const product = imaginaryNumber.multiply(realNumber);
+
+      const actual = product.isEqual(new Imaginary(new Real(14)));
+      const expected = true;
+
+      strictEqual(actual, expected);
+    });
+  });
+
+  describe("multiplyImaginary:", function () {
+    it("should give product of two imaginary numbers", function () {
+      const firstNumber = new Imaginary(new Real(4));
+      const secondNumber = new Imaginary(new Real(2));
+      const product = firstNumber.multiplyImaginary(secondNumber);
+
+      const actual = product.isEqual(new Imaginary(new Real(-8)));
+      const expected = true;
+
+      strictEqual(actual, expected);
+    });
+
+    it("should give product of one positive and imaginary number", function () {
+      const firstNumber = new Imaginary(new Real(-3));
+      const secondNumber = new Imaginary(new Real(5));
+      const product = firstNumber.multiplyImaginary(secondNumber);
+
+      const actual = product.isEqual(new Imaginary(new Real(15)));
+      const expected = true;
+
+      strictEqual(actual, expected);
+    });
+  });
 });

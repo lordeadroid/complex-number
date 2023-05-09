@@ -5,30 +5,30 @@ class Imaginary {
 
   constructor(realNumber) {
     this.#imaginary = realNumber;
-  }
+  };
 
-  add(otherNumber) {
-    const sum = this.#imaginary.add(otherNumber.#imaginary);
+  add(imaginaryNumber) {
+    const sum = this.#imaginary.add(imaginaryNumber.#imaginary);
     return new Imaginary(sum);
-  }
+  };
 
-  multiply(otherNumber) {
-    const number = this.#imaginary.multiply(otherNumber);
-    return new Imaginary(number);
-  }
+  multiply(realNumber) {
+    const product = this.#imaginary.multiply(realNumber);
+    return new Imaginary(product);
+  };
 
   multiplyImaginary(otherNumber) {
-    const number = this.#imaginary * otherNumber.#imaginary;
-    return new Real(number * -1);
-  }
+    const product = this.multiply(otherNumber.#imaginary);
+    return product.multiply(new Real(-1));
+  };
 
-  isEqual(otherNumber) {
-    return this.#imaginary.isEqual(otherNumber.#imaginary);
-  }
+  isEqual(imaginaryNumber) {
+    return this.#imaginary.isEqual(imaginaryNumber.#imaginary);
+  };
 
   toString() {
     return `${this.#imaginary}i`;
-  }
-}
+  };
+};
 
 exports.Imaginary = Imaginary;
