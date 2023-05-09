@@ -19,6 +19,10 @@ class Real {
     return new Real(number);
   }
 
+  isEqual(otherNumber) {
+    return this.#real === otherNumber.#real;
+  }
+
   toString() {
     return `${this.#real}`;
   }

@@ -33,4 +33,10 @@ describe("Real Number", function() {
     const expected = '10';
     deepStrictEqual(actual, expected);
   })
+
+  it("should equate two numbers", function () {
+    const actual = new Real(1);
+    const expected = new Real(1);
+    deepStrictEqual(actual, expected);
+  })
 })
