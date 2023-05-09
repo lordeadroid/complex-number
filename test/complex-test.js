@@ -39,4 +39,19 @@ describe("Complex Number", function () {
 
     deepStrictEqual(actual, expected);
   })
+
+  it("should tell if an complex number is equal to other", function () {
+    const r1 = new Real(1);
+    const i1 = new Imaginary(new Real(7));
+    const firstNumber = new Complex(r1, i1);
+
+    const r2 = new Real(5);
+    const i2 = new Imaginary(new Real(2));
+    const secondNumber = new Complex(r2, i2);
+
+    const actual = firstNumber.isEqual(secondNumber);
+    const expected = false;
+
+    deepStrictEqual(actual, expected);
+  }
 })
