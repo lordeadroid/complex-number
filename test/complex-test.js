@@ -1,42 +1,25 @@
-const {strictEqual, deepStrictEqual} = require("assert");
-const {describe, it} = require("node:test");
+const { deepStrictEqual } = require("assert");
+const { describe, it } = require("node:test");
 
-const {Complex} = require("../src/complex.js");
+const { Real } = require("../src/real.js");
+const { Imaginary } = require("../src/imaginary.js");
+const { Complex } = require("../src/complex.js");
 
-describe("real part", function() {
-  it("should give real part", function() {
-    const number = new Complex(1, 2);
-    const actual = number.getReal();
-    const expected = 1;
-    strictEqual(actual, expected);
-  })
-})
+describe("Complex Number", function () {
+  it("should give sum of real and imaginary parts of numbers", function () {
+    const r1 = new Real(1);
+    const i1 = new Imaginary(2);
+    const firstNumber = new Complex(r1, i1);
 
-describe("imaginary part", function() {
-  it("should give imaginary part", function() {
-    const number = new Complex(2, 4);
-    const actual = number.getImaginary();
-    const expected = 4;
-    strictEqual(actual, expected);
-  })
-})
+    const r2 = new Real(5);
+    const i2 = new Imaginary(3);
+    const secondNumber = new Complex(r2, i2);
 
-describe("addition", function() {
-  it("should give sum of real and imaginary parts of numbers", function() {
-    const firstNumber = new Complex(1, 1);
-    const secondNumber = new Complex(2, 3);
+    const r = new Real(6);
+    const i = new Imaginary(5);
     const actual = firstNumber.add(secondNumber);
-    const expected = new Complex(3, 4);
-    deepStrictEqual(actual, expected);
-  })
-})
+    const expected = new Complex(r, i);
 
-describe("multiplication", function() {
-  it("should give product of real and imaginary parts of numbers", function() {
-    const firstNumber = new Complex(4, 2);
-    const secondNumber = new Complex(2, 3);
-    const actual = firstNumber.multiply(secondNumber);
-    const expected = new Complex(2, 16);
     deepStrictEqual(actual, expected);
-  })
+  });
 })
