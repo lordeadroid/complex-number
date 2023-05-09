@@ -1,14 +1,27 @@
 const { describe, it } = require("node:test");
 const { deepStrictEqual } = require("assert");
 
+const { Real } = require("../src/real");
 const { Imaginary } = require("../src/imaginary.js");
 
 describe("Imaginary", function () {
   it("should add two imaginary numbers", function () {
-    const number = new Imaginary(2);
-    const other = new Imaginary(5);
+    const number = new Imaginary(new Real(2));
+    const other = new Imaginary(new Real(3));
+
     const actual = number.add(other);
-    const expected = new Imaginary(7);
+    const expected = new Imaginary(new Real(5));
+
     deepStrictEqual(actual, expected);
   });
+
+  it("should return an product of real and imaginary", function () {
+    const r = new Real(3);
+    const i = new Imaginary(new Real(2));
+
+    const actual = i.multiply(r);
+    const expected = new Imaginary(6);
+
+    deepStrictEqual(actual, expected);
+  })
 });

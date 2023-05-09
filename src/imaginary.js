@@ -1,22 +1,25 @@
+const { Real } = require("./real.js");
+
 class Imaginary {
   #imaginary;
 
-  constructor(number) {
-    this.#imaginary = number;
+  constructor(realNumber) {
+    this.#imaginary = realNumber;
   }
 
   add(otherNumber) {
-    const number = this.#imaginary + otherNumber.#imaginary;
-    return new Imaginary(number);
+    const sum = this.#imaginary.add(otherNumber.#imaginary);
+    return new Imaginary(sum);
   }
 
   multiply(otherNumber) {
-    const number = this.#imaginary * otherNumber.#imaginary;
+    const number = this.#imaginary.multiply(otherNumber);
     return new Imaginary(number);
   }
 
   multiplyImaginary(otherNumber) {
-    
+    const number = this.#imaginary * otherNumber.#imaginary;
+    return new Real(number * -1);
   }
 
   toString() {
