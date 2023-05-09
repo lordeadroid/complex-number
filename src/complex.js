@@ -16,13 +16,13 @@ class Complex {
 
     const realNumber = new Real(real);
     const imaginaryNumber = new Imaginary(imaginary);
-    
+
     return new Complex(realNumber, imaginaryNumber);
   }
 
   multiply(other) {
     const real = this.#real.multiply(other.#real) + this.#imaginary.multiplyImaginary(other.#imaginary);
-    const imaginary = this.#imaginary(other.#real) + other.#real(other.#imaginary);
+    const imaginary = this.#imaginary.multiply(other.#real) + other.#imaginary.multiply(this.#real);
 
     const realNumber = new Real(real);
     const imaginaryNumber = new Imaginary(imaginary);
