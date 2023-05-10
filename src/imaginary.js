@@ -18,7 +18,7 @@ class Imaginary {
   };
 
   multiplyImaginary(otherNumber) {
-    const product = this.multiply(otherNumber.#imaginary);
+    const product = this.#imaginary.multiply(otherNumber.#imaginary);
     return product.multiply(new Real(-1));
   };
 

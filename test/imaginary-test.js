@@ -70,7 +70,7 @@ describe("Imaginary", function () {
       const secondNumber = new Imaginary(new Real(2));
       const product = firstNumber.multiplyImaginary(secondNumber);
 
-      const actual = product.isEqual(new Imaginary(new Real(-8)));
+      const actual = product.isEqual(new Real(-8));
       const expected = true;
 
       strictEqual(actual, expected);
@@ -81,7 +81,7 @@ describe("Imaginary", function () {
       const secondNumber = new Imaginary(new Real(5));
       const product = firstNumber.multiplyImaginary(secondNumber);
 
-      const actual = product.isEqual(new Imaginary(new Real(15)));
+      const actual = product.isEqual(new Real(15));
       const expected = true;
 
       strictEqual(actual, expected);
