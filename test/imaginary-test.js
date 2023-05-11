@@ -1,5 +1,5 @@
-const { describe, it } = require("node:test");
 const { strictEqual } = require("assert");
+const { describe, it } = require("node:test");
 
 const { Real } = require("../src/real");
 const { Imaginary } = require("../src/imaginary.js");

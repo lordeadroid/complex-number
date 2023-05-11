@@ -1,5 +1,5 @@
+const { strictEqual } = require("assert");
 const { describe, it } = require("node:test");
-const { deepStrictEqual } = require("assert");
 
 const { Real } = require("../src/real.js");
 
@@ -13,7 +13,7 @@ describe("Real Numbers", function () {
       const actual = sum.isEqual(new Real(8));
       const expected = true;
 
-      deepStrictEqual(actual, expected);
+      strictEqual(actual, expected);
     });
   });
 
@@ -26,7 +26,7 @@ describe("Real Numbers", function () {
       const actual = product.isEqual(new Real(10));
       const expected = true;
 
-      deepStrictEqual(actual, expected);
+      strictEqual(actual, expected);
     });
   });
 
@@ -37,7 +37,7 @@ describe("Real Numbers", function () {
       const actual = number.toString();
       const expected = '10';
 
-      deepStrictEqual(actual, expected);
+      strictEqual(actual, expected);
     });
   });
 
@@ -49,7 +49,7 @@ describe("Real Numbers", function () {
       const actual = firstNumber.isEqual(secondNumber);
       const expected = true;
 
-      deepStrictEqual(actual, expected);
+      strictEqual(actual, expected);
     });
 
     it("should not be equal for different values", function () {
@@ -59,7 +59,7 @@ describe("Real Numbers", function () {
       const actual = firstNumber.isEqual(secondNumber);
       const expected = false;
 
-      deepStrictEqual(actual, expected);
+      strictEqual(actual, expected);
     });
   });
 });
