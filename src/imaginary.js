@@ -3,17 +3,17 @@ const { Real } = require("./real.js");
 class Imaginary {
   #imaginary;
 
-  constructor(realNumber) {
-    this.#imaginary = realNumber;
+  constructor(number) {
+    this.#imaginary = number;
   };
 
-  add(imaginaryNumber) {
-    const sum = this.#imaginary.add(imaginaryNumber.#imaginary);
+  add(otherNumber) {
+    const sum = this.#imaginary.add(otherNumber.#imaginary);
     return new Imaginary(sum);
   };
 
-  multiply(realNumber) {
-    const product = this.#imaginary.multiply(realNumber);
+  multiply(otherNumber) {
+    const product = this.#imaginary.multiply(otherNumber);
     return new Imaginary(product);
   };
 
@@ -22,8 +22,8 @@ class Imaginary {
     return product.multiply(new Real(-1));
   };
 
-  isEqual(imaginaryNumber) {
-    return this.#imaginary.isEqual(imaginaryNumber.#imaginary);
+  isEqual(otherNumber) {
+    return this.#imaginary.isEqual(otherNumber.#imaginary);
   };
 
   toString() {
